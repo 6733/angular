@@ -1,5 +1,5 @@
 import { Component, Input,Output,EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute} from '@angular/router';
 import {ApiService} from './app.apiservice';
 import {Observable} from 'rxjs';
 
@@ -12,13 +12,17 @@ import {Observable} from 'rxjs';
 export class HelloComponent  {
   @Input() name: any;
 
-  constructor(private router: Router,private apiserv : ApiService) {}
+  constructor(private router: Router,private apiserv : ApiService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {
     this.apiserv.getPosts().subscribe(res => {
      this.name = res.json();
     });
-  }
+      
+  }this.activatedRoute.params.subscribe((params: Params) => {
+        let userId = params['userId'];
+        console.log(userId);
+      });
 
   ngAfterViewInit() {
    
