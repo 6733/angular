@@ -1,0 +1,8 @@
+<ul  >
+
+<li *ngFor="let user of name.data">{{user.id}} {{user.last_name}} {{user.first_name}} &nbsp; 
+  <img src="{{user.avatar}}" (click)="showdetailpage(user)"/> <br/>
+  <button (click)="clikMeinHello(user)">Heey Click Me!</button></li>
+</ul>
+
+<div id="sel" >kl </div>
